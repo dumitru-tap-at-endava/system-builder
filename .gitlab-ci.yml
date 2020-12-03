@@ -2,6 +2,9 @@ include:
   - project: zdf-cloud/services/templates
     ref: master
     file: /build-and-push-docker.gitlab-ci.yml
+  - project: zdf-cloud/services/templates
+    ref: master
+    file: /tag-git-commit.gitlab-ci.yml
 
 variables:
   APP_NAME: 3scale-system-builder
