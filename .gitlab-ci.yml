@@ -1,0 +1,21 @@
+include:
+  - project: zdf-cloud/services/templates
+    ref: master
+    file: /build-and-push-docker.gitlab-ci.yml
+  - project: zdf-cloud/services/templates
+    ref: master
+    file: /tag-git-commit.gitlab-ci.yml
+
+variables:
+  APP_NAME: 3scale-system-builder
+  APP_VERSION: 1.0.$CI_PIPELINE_ID
+
+stages:
+  - build
+  - tag
+
+build and push 3scale system-builder:
+  extends: .build-and-push-docker
+
+tag git commit:
+  extends: .tag-git-commit
